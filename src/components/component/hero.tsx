@@ -20,7 +20,7 @@ export function Hero() {
         <div className="flex flex-col justify-center space-y-4 bg-white p-2 rounded-2xl border-green">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-violet">
-              Unleash Your Digital Potential
+              Test
             </h1>
             <p className="max-w-[600px] text-gray-500 md:text-xl text-violet font-bold">
               Discover our cutting-edge solutions and transform your business into a digital powerhouse.
