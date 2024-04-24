@@ -5,8 +5,8 @@ import hero from "../../../public/hero/hero.jpeg";
 export function Hero() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32">
-      <div className="gap-5 flex w-full flex-col md:flex-row">
-        <div className="w-full h-72 lg:w-1/2 relative mr-2">
+      <div className="gap-5 flex w-full flex-col md:flex-row justify-center">
+        <div className="w-full h-72 lg:w-1/2 xl:w-80 relative mr-2">
           <Image
             alt="Hero Image"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-fill sm:w-full"
