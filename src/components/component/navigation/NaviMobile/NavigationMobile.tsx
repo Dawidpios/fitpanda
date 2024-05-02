@@ -19,15 +19,15 @@ const NavigationMobile = () => {
       ) : (
         <GiHamburgerMenu className='text-white z-20 m-2 text-5xl' onClick={handleOpen} />
       )}
-        <div className={`fixed ${ !open ? '-top-full' : 'top-0' } ease-out duration-700 w-full h-1/2 bg-black border-b-8 rounded-b-3xl border-white`}>
-          <ul className="flex h-full flex-col space-x-2 justify-around items-center text-green uppercase text-3xl">
-            <li>
+        <div className={`fixed ${ !open ? '-right-full' : 'right-0' }  ease-out duration-700 w-3/4 h-full bg-black border-l-2 border-white rounded-l-lg`}>
+          <ul className="flex h-full flex-col space-x-2 justify-center items-center text-white uppercase text-2xl mt-7 gap-4 text-center font-bold">
+            <li className="p-2 rounded-xl hover:text-white">
               <Link onClick={handleOpen} href="/">Home Page</Link>
             </li>
-            <li>
+            <li className="p-2 rounded-xl hover:text-white">
               <Link onClick={handleOpen} href="calculator">Calculator</Link>
             </li>
-            <li>
+            <li className="p-2 rounded-xl hover:text-white">
               <Link onClick={handleOpen} href="assistent">Panda assistent</Link>
             </li>
             <Login></Login>
