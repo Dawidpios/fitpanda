@@ -5,7 +5,7 @@ const SignIn = () => {
       <h2 className="text-center text-2xl text-white">Sign in to your account</h2>
       <h3 className="text-center text-lg text-white">
         Or sign up for a <b></b>
-        <Link className="text-lg text-green" href="/sign-up">
+        <Link className="text-lg text-green" href="/register">
           new account
         </Link>
       </h3>
