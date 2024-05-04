@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@component/components/ui/button";
-import hero from '../../../../public/hero/hero.jpeg'
+import hero from '@public/hero/hero.jpeg'
 
 const Hero = () => {
   return (
@@ -17,10 +17,9 @@ const Hero = () => {
             quality={100}
           />
         </div>
-
         <div className="flex flex-col justify-center space-y-2 bg-white p-2 rounded-2xl border-4 border-green">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-violet self-start">
-            Test
+            About us
           </h1>
           <div className="space-y-2">
             <p className="max-w-[600px] text-gray-500 md:text-xl text-violet font-bold">
