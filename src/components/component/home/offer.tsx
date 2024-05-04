@@ -26,8 +26,8 @@ const Offer = () => {
               ></Image>
             </div>
             <div className="w-full sm:w-3/4 flex flex-col p-4">
-              <h2 className="text-xl font-bold mb-2">Cutting-Edge Web Apps</h2>
-              <p className="text-gray-500 dark:text-gray-400 mb-4 text-justify">
+              <h2 className="text-xl text-black font-bold mb-2">Cutting-Edge Web Apps</h2>
+              <p className="text-black mb-4 text-justify">
                 Our team of expert developers will build you a modern,
                 responsive web application that is optimized for performance and
                 scalability.
@@ -52,8 +52,8 @@ const Offer = () => {
               ></Image>
             </div>
             <div className="w-full sm:w-3/4 flex flex-col p-4">
-              <h2 className="text-xl font-bold mb-2">Cutting-Edge Web Apps</h2>
-              <p className="text-gray-500 dark:text-gray-400 mb-4 text-justify">
+              <h2 className="text-xl text-black font-bold mb-2">Cutting-Edge Web Apps</h2>
+              <p className="text-black mb-4 text-justify">
                 Our team of expert developers will build you a modern,
                 responsive web application that is optimized for performance and
                 scalability.
@@ -78,8 +78,8 @@ const Offer = () => {
               ></Image>
             </div>
             <div className="w-full sm:w-3/4 flex flex-col p-4">
-              <h2 className="text-xl font-bold mb-2">Cutting-Edge Web Apps</h2>
-              <p className="text-gray-500 dark:text-gray-400 mb-4 text-justify">
+              <h2 className="text-xl text-black font-bold mb-2">Cutting-Edge Web Apps</h2>
+              <p className="text-black mb-4 text-justify">
                 Our team of expert developers will build you a modern,
                 responsive web application that is optimized for performance and
                 scalability.
