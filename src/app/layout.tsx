@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Session from "./context/Session";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@component/components/component/navigation/Navigation";
@@ -16,10 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navigation></Navigation>
-        {children}
-      </body>
+      <Session>
+        <body className={inter.className}>
+          <Navigation></Navigation>
+          {children}
+        </body>
+      </Session>
     </html>
   );
 }
