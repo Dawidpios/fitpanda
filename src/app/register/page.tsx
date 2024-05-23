@@ -6,7 +6,6 @@ import { z } from "zod";
 import { zodResolver } from '@hookform/resolvers/zod';
 import toast, {Toaster} from 'react-hot-toast'
 
-
 const schema = z.object({
   name: z.string().trim().min(5, {message: 'User name must be 5 or more characters long'}).max(10, {message: 'Must be 10 or less characters long'}),
   password: z.string().trim().min(8, {message: 'Password must be 8 or more characters long'}),
@@ -17,20 +16,26 @@ type typeRegisterSchema = z.infer<typeof schema>;
 
 
 const Register = () => {
-  const {register, handleSubmit, formState: {errors}} = useForm<typeRegisterSchema>({
+  const {register, handleSubmit, formState: {errors, isSubmitting}, reset } = useForm<typeRegisterSchema>({
     resolver: zodResolver(schema)
   })
-
+  console.log(isSubmitting)
   const submitHandler: SubmitHandler<typeRegisterSchema> = async (formData) => {
     try {
       const { success } = schema.safeParse(formData)
       if(success) {
-        const res = await fetch('https://fitpandabackend.vercel.app/register', {
+        const {name, password, email} = formData
+        console.log(JSON.stringify({name, password, email}))
+        const res = await fetch('https://fitp-be.vercel.app/addUser', {
           method: 'POST',
-          body: JSON.stringify(formData)
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({name, password, email})
         })
         const {success} = await res.json();
         if(success) {
+          reset()
           toast.success('Sign up success!');
         }
       }
@@ -39,7 +44,6 @@ const Register = () => {
     }
   }
   return ( 
-    <>
     <section className="flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-4">
         <div>
@@ -110,17 +114,17 @@ const Register = () => {
           </div>
           <div>
             <button
-              className="group relative flex w-full justify-center rounded-md border border-transparent bg-green py-2 px-4 text-sm text-white text-bold font-b"
+              className={`group relative flex w-full justify-center rounded-md border border-transparent bg-green py-2 px-4 text-sm text-white text-bold font-b ${isSubmitting && 'bg-gray'}`}
               type="submit"
+              disabled={isSubmitting}
             >
-              Create account
+              {isSubmitting ? "Creating account..." : "Create account"}
             </button>
           </div>
         </form>
       </div>
+      <Toaster/>
     </section>
-    <Toaster/>
-    </>
    );
 }
  

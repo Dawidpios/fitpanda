@@ -14,7 +14,7 @@ const NavigationDesktop = () => {
           <li className="p-2 rounded-xl hover:text-white">
             <Link href="assistent">Panda assistent</Link>
           </li>
-          <Login></Login>
+          <Login />
         </ul>
       </div>
   );

@@ -6,7 +6,7 @@ import pandaCalculator from "@public/home/pandaCalculator.jpeg";
 
 const Offer = () => {
   return (
-    <section className="w-full py-8 md:py-8 lg:py-12 bg-gray-100 dark:bg-gray-800 flex justify-center">
+    <section className="w-4/5 py-8 md:py-8 lg:py-12 bg-gray-100 dark:bg-gray-800 flex justify-center">
       <div className="container text-center">
         <div className="space-y-4">
           <h1 className="text-3xl text-white font-bold tracking-tighter sm:text-4xl md:text-5xl">

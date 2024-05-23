@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import {z} from 'zod'
 import {useForm, SubmitHandler} from 'react-hook-form'
@@ -17,11 +18,12 @@ type loginSchema = z.infer<typeof schema>
 
 
 const SignIn = () => {
-
+  const router = useRouter()
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting }
+    formState: { errors, isSubmitting },
+    reset
   } = useForm<loginSchema>({
     resolver: zodResolver(schema)
   })
@@ -34,8 +36,13 @@ const SignIn = () => {
      console.log(loginStatus)
      if(!loginStatus?.ok && loginStatus?.status === 401) {
       toast.error(`Login failed`)
+      return
      }
-
+     reset()
+     toast.success(`Login success!`)
+     setTimeout(() => {
+      router.push('/')
+     }, 500)
   }
 
   const githubLoginHandler = async () => {
@@ -87,7 +94,7 @@ const SignIn = () => {
             {errors.password && <p className='text-red-500 font-bold'>{errors.password.message}</p>}
           </div>
         </div>
-        <button className="w-full self-center p-2 bg-green text-white text-xl rounded-lg" type="submit">Sign in with credentials</button>
+        <button className={`w-full self-center p-2 ${isSubmitting ?'bg-gray' : 'bg-green'} text-white text-xl rounded-lg`} type="submit">{isSubmitting ? "Checking credencials..." : "Sign in with credentials"}</button>
         <button className="w-full self-center p-2 border-2 border-white bg-black text-white text-xl rounded-lg" onClick={githubLoginHandler}>Sign in with GitHub <FaGithub className="inline mb-2"/></button>
       </form>
       <Toaster />

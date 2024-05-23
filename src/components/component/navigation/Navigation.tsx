@@ -8,14 +8,14 @@ import useBreakpoint from "use-breakpoint";
 const BREAKPOINTS = { mobile: 0, desktop: 700 };
 
 const Navigation = () => {
-  const { breakpoint } = useBreakpoint(BREAKPOINTS, "desktop");
-
+  const cokolwiek = useBreakpoint(BREAKPOINTS, "mobile");
+  console.log(cokolwiek)
   return (
     <div className="w-full bg-black sticky top-0 z-10 h-14 flex justify-between">
       <div className="m-2 relative w-14 rounded-full h-full">
         <Image alt="image" src={navilogo} fill={true} sizes="width:100%, height:100%"></Image>
       </div>
-      {breakpoint === "mobile" ? (
+      {cokolwiek.breakpoint === "mobile" ? (
         <NavigationMobile></NavigationMobile>
       ) : (
         <NavigationDesktop></NavigationDesktop>
