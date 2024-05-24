@@ -68,7 +68,7 @@ const SignIn = () => {
             <input
               {...register('email')}
               autoComplete="email"
-              className="relative block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-2 focus:z-10 focus:border-green focus:outline-none focus:ring-green mt-2"
+              className="relative block w-full rounded-lg border border-gray-300 px-3 py-2 text-black placeholder-gray-500 focus:border-2 focus:z-10 focus:border-green focus:outline-none focus:ring-green mt-2"
               id="email-address"
               name="email"
               placeholder="Email address"
@@ -84,7 +84,7 @@ const SignIn = () => {
             <input
               {...register('password')}
               autoComplete="current-password"
-              className="relative block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-2 focus:z-10 focus:border-green focus:outline-none focus:ring-green mt-2"
+              className="relative block w-full rounded-lg border border-gray-300 px-3 py-2 text-black placeholder-gray-500 focus:border-2 focus:z-10 focus:border-green focus:outline-none focus:ring-green mt-2"
               id="password"
               name="password"
               placeholder="Password"
