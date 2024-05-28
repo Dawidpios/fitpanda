@@ -37,7 +37,6 @@ export const options : NextAuthOptions = {
         })
         const user = await userAuth.json()
         if(userAuth.status === 200 && user) {
-          console.log(user)
           return user
         }
         throw new Error("Login failed")
@@ -52,7 +51,6 @@ export const options : NextAuthOptions = {
       return {...token, ...user}
     },
     async session({session, token, trigger}) {
-      console.log(token)
       session.user.id = token.sub
       return session 
     }

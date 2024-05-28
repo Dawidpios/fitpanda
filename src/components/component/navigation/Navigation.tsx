@@ -9,7 +9,7 @@ const BREAKPOINTS = { mobile: 0, desktop: 700 };
 
 const Navigation = () => {
   const cokolwiek = useBreakpoint(BREAKPOINTS, "mobile");
-  console.log(cokolwiek)
+
   return (
     <div className="w-full bg-black sticky top-0 z-10 h-14 flex justify-between">
       <div className="m-2 relative w-14 rounded-full h-full">

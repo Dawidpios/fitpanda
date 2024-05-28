@@ -33,7 +33,6 @@ const SignIn = () => {
       ...data,
       redirect: false
      })
-     console.log(loginStatus)
      if(!loginStatus?.ok && loginStatus?.status === 401) {
       toast.error(`Login failed`)
       return
@@ -58,7 +57,7 @@ const SignIn = () => {
           new account
         </Link>
       </h3>
-      <form onSubmit={handleSubmit(loginHandler)}className="w-90 lg:w-1/3 self-center mt-8 space-y-6">
+      <form onSubmit={handleSubmit(loginHandler)} className="w-90 lg:w-1/3 self-center mt-8 space-y-6">
         <input defaultValue="true" name="remember" type="hidden" />
         <div className="-space-y-px rounded-md shadow-sm">
           <div>

@@ -19,13 +19,11 @@ const Register = () => {
   const {register, handleSubmit, formState: {errors, isSubmitting}, reset } = useForm<typeRegisterSchema>({
     resolver: zodResolver(schema)
   })
-  console.log(isSubmitting)
   const submitHandler: SubmitHandler<typeRegisterSchema> = async (formData) => {
     try {
       const { success } = schema.safeParse(formData)
       if(success) {
         const {name, password, email} = formData
-        console.log(JSON.stringify({name, password, email}))
         const res = await fetch('https://fitp-be.vercel.app/addUser', {
           method: 'POST',
           headers: {
