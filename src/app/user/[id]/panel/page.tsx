@@ -2,6 +2,7 @@ import { Label } from "@src/components/ui/label";
 import { Input } from "@src/components/ui/input";
 import { Button } from "@src/components/ui/button";
 import AvatarHandler from "./AvatarHandler";
+import { Toaster } from "react-hot-toast";
 
 const UserPanel = ({ params }: { params: { id: string } }) => {
   const userID = params.id;
@@ -70,6 +71,7 @@ const UserPanel = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

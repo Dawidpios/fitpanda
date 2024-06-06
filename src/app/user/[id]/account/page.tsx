@@ -15,7 +15,7 @@ const UserAccount = async ({ params }: { params: { id: string } }) => {
     notFound();
   }
 
-  const { id, name, email, createdAt, stats } = user;
+  const { id, name, email, createdAt, stats, image } = user;
 
   console.log(stats);
   const createdDate = new Date(createdAt).toLocaleDateString();
@@ -24,7 +24,7 @@ const UserAccount = async ({ params }: { params: { id: string } }) => {
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <div className="col-span-2 lg:col-span-1">
           <div className="flex flex-col items-center gap-4">
-            <Avatar className=" h-16 w-16"></Avatar>
+            <Avatar className=" h-16 w-16" src={image}></Avatar>
             <div className="text-center">
               <h1 className="text-2xl font-bold text-white">{name}</h1>
               <p className="text-gray-500 text-white">{email}</p>

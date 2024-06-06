@@ -19,7 +19,7 @@ const UserMenu = ({
     close(false);
   };
   if (status === "authenticated") {
-    const { email, name, id } = data?.user;
+    const { email, name, id, image } = data?.user;
 
     return (
       <section
@@ -34,7 +34,7 @@ const UserMenu = ({
         <div className=" w-60 sm:max-w-[620px]">
           <div className="bg-gray-950">
             <div className="flex items-center gap-4 p-2 mt-4">
-              <Avatar className="h-12 w-12"></Avatar>
+              <Avatar className="h-12 w-12" src={image}></Avatar>
               <div className="text-white">
                 <div className="font-medium">{name}</div>
                 <div className="text-sm text-gray-400">{email}</div>
