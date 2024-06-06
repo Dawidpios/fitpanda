@@ -1,12 +1,12 @@
 import Link from "next/link";
-import Avatar from "../../Avatar/Avatar";
+import Avatar from "../Avatar/Avatar";
 import { useSession } from "next-auth/react";
 import { RiCloseFill } from "react-icons/ri";
 import { FaCog } from "react-icons/fa";
 import { FaUserTag } from "react-icons/fa6";
 import { Dispatch, SetStateAction } from "react";
 
-const UserPanel = ({
+const UserMenu = ({
   open,
   close,
 }: {
@@ -41,10 +41,11 @@ const UserPanel = ({
               </div>
             </div>
             <div className="m-2 flex flex-col justify-start">
-              <Link className="mt-2 text-xl text-white hover:text-green" href="/user/panel">
+              <Link onClick={closeHandler} className="mt-2 text-xl text-white hover:text-green" href={`/user/${id}/panel`}>
                 User panel <FaCog className="inline" />
               </Link>
               <Link
+                onClick={closeHandler}
                 className="mt-2 text-xl text-white hover:text-green"
                 href={`/user/${id}/account`}
               >
@@ -58,4 +59,4 @@ const UserPanel = ({
   }
 };
 
-export default UserPanel;
+export default UserMenu;

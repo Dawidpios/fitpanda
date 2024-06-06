@@ -4,8 +4,9 @@ import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@component/components/ui/input";
-import toast, {Toaster} from 'react-hot-toast'
+import { Input } from "@src/components/ui/input";
+import revalidateT from "@src/action/revalidate";
+import toast, { Toaster } from "react-hot-toast";
 import weight from "@public/userParams/weight.jpeg";
 import waist from "@public/userParams/waist.jpeg";
 import chest from "@public/userParams/chest.jpeg";
@@ -13,19 +14,27 @@ import biceps from "@public/userParams/biceps.jpeg";
 
 const formSchema = z.object({
   weight: z
-    .number({message: "You should set some value"})
+    .number({ message: "You should set some value" })
     .min(30, { message: "Are you certain that your weight is below 30 kg?" })
     .max(200, { message: "Are you certain that your weight is above 200 kg?" })
-    .nonnegative({ message: "You can not set negative values." }),
+    .nonnegative({ message: "You can not set negative values." })
+    .optional()
+    .or(z.literal("")),
   waist: z
-    .number({message: "You should set some value"})
-    .nonnegative({ message: "You can not set negative values." }),
+    .number({ message: "You should set some value" })
+    .nonnegative({ message: "You can not set negative values." })
+    .optional()
+    .or(z.literal("")),
   chest: z
-    .number({message: "You should set some value"})
-    .nonnegative({ message: "You can not set negative values." }),
+    .number({ message: "You should set some value" })
+    .nonnegative({ message: "You can not set negative values." })
+    .optional()
+    .or(z.literal("")),
   biceps: z
-    .number({message: "You should set some value"})
-    .nonnegative({ message: "You can not set negative values." }),
+    .number({ message: "You should set some value" })
+    .nonnegative({ message: "You can not set negative values." })
+    .optional()
+    .or(z.literal("")),
 });
 
 type hookFormSchema = z.infer<typeof formSchema>;
@@ -41,18 +50,26 @@ const UserMeasurementsForm = ({ id }: { id: string }) => {
   });
 
   const submitForm: SubmitHandler<hookFormSchema> = async (formData) => {
-    const res = await fetch('https://fitp-be.vercel.app/updateStats', {
+    Object.keys(formData).forEach((key) => {
+      const typedKey = key as keyof typeof formData;
+      if (formData[typedKey] === "") {
+        delete formData[typedKey];
+      }
+    });
+
+    const res = await fetch("https://fitp-be.vercel.app/updateStats", {
       method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({formData, id})
-    })
-    if(res.ok && res.status === 200) {
-      toast.success('User measurements updated successfully')
-      reset()
+      body: JSON.stringify({ formData, id }),
+    });
+    if (res.ok && res.status === 200) {
+      toast.success("User measurements updated successfully");
+      reset();
+      revalidateT('userParams')
     } else {
-      toast.error('User measurements updated failed!')
+      toast.error("User measurements updated failed!");
     }
   };
 
@@ -73,10 +90,14 @@ const UserMeasurementsForm = ({ id }: { id: string }) => {
               placeholder="Enter your weight"
               type="number"
               className="text-black"
-              {...register("weight", { valueAsNumber: true })}
+              {...register("weight", {
+                setValueAs: (value) => (value !== "" ? Number(value) : ""),
+              })}
             />
             {errors.weight && (
-              <p className="text-red-500 font-bold text-justify">{errors.weight.message}</p>
+              <p className="text-red-500 font-bold text-justify">
+                {errors.weight.message}
+              </p>
             )}
           </div>
           <Image
@@ -99,10 +120,14 @@ const UserMeasurementsForm = ({ id }: { id: string }) => {
               placeholder="Enter your waist size"
               type="number"
               className="text-black"
-              {...register("waist", { valueAsNumber: true })}
+              {...register("waist", {
+                setValueAs: (value) => (value !== "" ? Number(value) : ""),
+              })}
             />
             {errors.waist && (
-              <p className="text-red-500 font-bold text-justify">{errors.waist.message}</p>
+              <p className="text-red-500 font-bold text-justify">
+                {errors.waist.message}
+              </p>
             )}
           </div>
           <Image
@@ -125,10 +150,14 @@ const UserMeasurementsForm = ({ id }: { id: string }) => {
               placeholder="Enter your chest size"
               type="number"
               className="text-black"
-              {...register("chest", { valueAsNumber: true })}
+              {...register("chest", {
+                setValueAs: (value) => (value !== "" ? Number(value) : ""),
+              })}
             />
             {errors.chest && (
-              <p className="text-red-500 font-bold text-justify">{errors.chest.message}</p>
+              <p className="text-red-500 font-bold text-justify">
+                {errors.chest.message}
+              </p>
             )}
           </div>
           <Image
@@ -151,10 +180,14 @@ const UserMeasurementsForm = ({ id }: { id: string }) => {
               placeholder="Enter your hip size"
               type="number"
               className="text-black"
-              {...register("biceps", { valueAsNumber: true })}
+              {...register("biceps", {
+                setValueAs: (value) => (value !== "" ? Number(value) : ""),
+              })}
             />
             {errors.biceps && (
-              <p className="text-red-500 font-bold text-justify">{errors.biceps.message}</p>
+              <p className="text-red-500 font-bold text-justify">
+                {errors.biceps.message}
+              </p>
             )}
           </div>
           <Image

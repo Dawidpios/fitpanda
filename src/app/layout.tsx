@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Session from "./context/Session";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navigation from "@component/components/component/navigation/Navigation";
+import Navigation from "@src/components/component/navigation/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,7 +1,7 @@
 
-import Hero from "@component/components/component/home/hero";
-import Offer from "@component/components/component/home/offer";
-import Footer from "@component/components/component/home/footer";
+import Hero from "@src/components/component/home/hero";
+import Offer from "@src/components/component/home/offer";
+import Footer from "@src/components/component/home/footer";
 
 const Home = async () => {
 

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "@component/components/ui/button";
+import { Button } from "@src/components/ui/button";
 import hero from '@public/hero/hero.jpeg'
 
 const Hero = () => {

@@ -18,7 +18,7 @@
       }
     ],
     "paths": {
-      "@component/*": ["./src/*"],
+      "@src/*": ["./src/*"],
       "@public/*": ["./public/*"],
       "@app/*": ["./*"]
     }

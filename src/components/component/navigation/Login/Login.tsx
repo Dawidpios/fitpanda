@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import Avatar from "../../Avatar/Avatar";
-import UserPanel from '../../user/panel/UserPanel';
+import UserMenu from '../../user/UserMenu';
 
 const Login = () => {
   const [open, setOpen] = useState(false)
@@ -30,7 +30,7 @@ const Login = () => {
         <button onClick={userPanelHandler}>
           <Avatar src={image}></Avatar>
         </button>
-        <UserPanel open={open} close={setOpen}/>
+        <UserMenu open={open} close={setOpen}/>
       </>
     );
   }

@@ -9,10 +9,10 @@ const NavigationDesktop = () => {
             <Link href="/">Home Page</Link>
           </li>
           <li className="p-2 rounded-xl hover:text-white">
-            <Link href="calculator">Calculator</Link>
+            <Link href="/calculator">Calculator</Link>
           </li>
           <li className="p-2 rounded-xl hover:text-white">
-            <Link href="assistent">Panda assistent</Link>
+            <Link href="/assistent">Panda assistent</Link>
           </li>
           <Login />
         </ul>
