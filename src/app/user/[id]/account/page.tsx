@@ -17,7 +17,6 @@ const UserAccount = async ({ params }: { params: { id: string } }) => {
 
   const { id, name, email, createdAt, stats, image } = user;
 
-  console.log(stats);
   const createdDate = new Date(createdAt).toLocaleDateString();
   return (
     <div className="container mx-auto px-4 py-4 md:py-8 lg:py-12">
