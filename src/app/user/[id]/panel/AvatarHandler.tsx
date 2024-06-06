@@ -1,6 +1,7 @@
 "use client";
 
 import Avatar from "@src/components/component/Avatar/Avatar";
+import revalidateT from "@src/action/revalidate";
 import { storage } from "@src/utils/firebase";
 import {
   ref,
@@ -57,6 +58,7 @@ const AvatarHandler = ({ id }: { id: string }) => {
     }).then(async () => {
       await update({ image: img });
       reloadSession();
+      revalidateT('/userParams')
       toast.success("Image update success!");
     });
   };
