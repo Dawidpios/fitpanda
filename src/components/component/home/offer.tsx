@@ -20,6 +20,7 @@ const Offer = () => {
                 style={{ borderRadius: "8px" }}
                 alt="pandacooker"
                 fill={true}
+                sizes="100%"
                 src={pandaCooker}
                 quality={100}
                 priority={true}
@@ -46,6 +47,7 @@ const Offer = () => {
                 style={{ borderRadius: "8px" }}
                 alt="pandacooker"
                 fill={true}
+                sizes="100%"
                 src={pandaCalculator}
                 quality={100}
                 priority={true}
@@ -72,6 +74,7 @@ const Offer = () => {
                 style={{ borderRadius: "8px" }}
                 alt="pandacooker"
                 fill={true}
+                sizes="100%"
                 src={pandaAssistent}
                 quality={100}
                 priority={true}

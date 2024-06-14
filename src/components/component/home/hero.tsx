@@ -11,6 +11,7 @@ const Hero = () => {
             alt="Hero Image"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-fill sm:w-full"
             fill={true}
+            sizes="100%"
             src={hero}
             placeholder="blur"
             priority
