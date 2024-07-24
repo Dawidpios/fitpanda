@@ -11,7 +11,7 @@ const FinalStep = () => {
     startTransition(async () => {
       const local = localStorage.getItem('dietAssistent')
       const parsed = JSON.parse(local as string)
-      const res = await fetch("http://localhost:5000/dietAssistent", {
+      const res = await fetch("https://fitp-be.vercel.app/dietAssistant", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
