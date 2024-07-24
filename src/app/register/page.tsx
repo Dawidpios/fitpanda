@@ -112,7 +112,7 @@ const Register = () => {
           </div>
           <div>
             <button
-              className={`group relative flex w-full justify-center rounded-md border border-transparent bg-green py-2 px-4 text-sm text-white text-bold font-b ${isSubmitting && 'bg-gray'}`}
+              className={`group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm text-white text-bold font-b ${isSubmitting ? 'bg-gray' : 'bg-green'}`}
               type="submit"
               disabled={isSubmitting}
             >

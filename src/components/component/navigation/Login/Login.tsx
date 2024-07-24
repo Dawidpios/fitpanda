@@ -24,11 +24,11 @@ const Login = () => {
     const { image } = data.user;
     return (
       <>
-        <button onClick={logOut} className="p-2 rounded-xl hover:text-white">
-          Log out
-        </button>
         <button onClick={userPanelHandler}>
           <Avatar src={image}></Avatar>
+        </button>
+        <button onClick={logOut} className="p-2 rounded-xl hover:text-white">
+          Log out
         </button>
         <UserMenu open={open} close={setOpen}/>
       </>
